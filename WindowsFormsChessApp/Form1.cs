@@ -169,8 +169,9 @@ namespace WindowsFormsChessApp
 
             //create form2 so the user chooses the new piece / form2 will the call pawntransformStep2
             Form2 form2 = new Form2(currentArtStyle,pawn.ColorBW,this,pawn,i);
-            form2.Show();
+            
             this.Enabled = false;
+            form2.ShowDialog();
         }
 
         //method to complete the 'transformation' of the pawn (called from Form2)
@@ -651,7 +652,7 @@ namespace WindowsFormsChessApp
 
             //show Form4 for the database
             Form4 form4 = new Form4(this, color);
-            form4.Show();
+            
             this.Enabled = false;
 
             //deactivate ALL chesspieces
@@ -664,6 +665,8 @@ namespace WindowsFormsChessApp
                 chesspiecesB[i].Enabled = false;
                 chesspiecesW[i].Enabled = false;
             }
+            
+            form4.ShowDialog();
         }
 
 
@@ -798,7 +801,7 @@ namespace WindowsFormsChessApp
             ongoingGame = false;
 
             Form3 form3 = new Form3(this);
-            form3.Show();
+            form3.ShowDialog();
 
         }
 
