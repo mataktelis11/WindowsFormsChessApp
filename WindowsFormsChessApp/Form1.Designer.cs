@@ -40,10 +40,8 @@ namespace WindowsFormsChessApp
             this.casleBigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chessBoardThemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.standardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.woodenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.androidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.humanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -135,41 +133,25 @@ namespace WindowsFormsChessApp
             // chessBoardThemeToolStripMenuItem
             // 
             this.chessBoardThemeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.standardToolStripMenuItem,
             this.woodenToolStripMenuItem,
-            this.androidToolStripMenuItem,
-            this.humanToolStripMenuItem});
+            this.androidToolStripMenuItem});
             this.chessBoardThemeToolStripMenuItem.Name = "chessBoardThemeToolStripMenuItem";
-            this.chessBoardThemeToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.chessBoardThemeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.chessBoardThemeToolStripMenuItem.Text = "Chess Board Theme";
-            // 
-            // standardToolStripMenuItem
-            // 
-            this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.standardToolStripMenuItem.Text = "Standard";
-            this.standardToolStripMenuItem.Click += new System.EventHandler(this.standardToolStripMenuItem_Click);
             // 
             // woodenToolStripMenuItem
             // 
             this.woodenToolStripMenuItem.Name = "woodenToolStripMenuItem";
-            this.woodenToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.woodenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.woodenToolStripMenuItem.Text = "Wooden";
             this.woodenToolStripMenuItem.Click += new System.EventHandler(this.woodenToolStripMenuItem_Click);
             // 
             // androidToolStripMenuItem
             // 
             this.androidToolStripMenuItem.Name = "androidToolStripMenuItem";
-            this.androidToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.androidToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.androidToolStripMenuItem.Text = "Android";
             this.androidToolStripMenuItem.Click += new System.EventHandler(this.androidToolStripMenuItem_Click);
-            // 
-            // humanToolStripMenuItem
-            // 
-            this.humanToolStripMenuItem.Name = "humanToolStripMenuItem";
-            this.humanToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.humanToolStripMenuItem.Text = "Human";
-            this.humanToolStripMenuItem.Click += new System.EventHandler(this.humanToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -369,7 +351,6 @@ namespace WindowsFormsChessApp
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chessBoardThemeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem standardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem woodenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem androidToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
@@ -383,7 +364,6 @@ namespace WindowsFormsChessApp
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ToolStripMenuItem humanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem surrenderToolStripMenuItem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

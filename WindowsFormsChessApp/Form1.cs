@@ -33,6 +33,8 @@ namespace WindowsFormsChessApp
         public StringBuilder Sb { get; set; }   //stringbuilder for the history
         public TimeSpan GivenTime { get; set; } //given time for each player//assigned by form3//only used for the database 
 
+        SoundPlayer player;
+
         public Form1()
         {
             InitializeComponent();
@@ -335,7 +337,7 @@ namespace WindowsFormsChessApp
         //method called when move was made
         public void moveMade(ChessPiece chessPiece)
         {
-            SoundPlayer player = new SoundPlayer("sounds/effect.wav");
+            player = new SoundPlayer(Properties.Resources.effect);
             player.Play();
 
             //MessageBox.Show("move was made");
@@ -376,7 +378,7 @@ namespace WindowsFormsChessApp
 
                 if(chessBoard.Squares[0][1].IsEmpty && chessBoard.Squares[0][2].IsEmpty && chesspiecesW[8].FirstMove && chesspiecesW[11].FirstMove)
                 {
-                    SoundPlayer player = new SoundPlayer("sounds/castle.wav");
+                    player = new SoundPlayer("sounds/castle.wav");
                     player.Play();
 
                     chesspiecesW[8].FirstMove = false;
@@ -419,7 +421,7 @@ namespace WindowsFormsChessApp
 
                 if (chessBoard.Squares[7][1].IsEmpty && chessBoard.Squares[7][2].IsEmpty && chesspiecesB[8].FirstMove && chesspiecesB[11].FirstMove)
                 {
-                    SoundPlayer player = new SoundPlayer("sounds/castle.wav");
+                    player = new SoundPlayer("sounds/castle.wav");
                     player.Play();
 
                     chesspiecesB[8].FirstMove = false;
@@ -475,7 +477,7 @@ namespace WindowsFormsChessApp
 
                 if (chessBoard.Squares[0][4].IsEmpty && chessBoard.Squares[0][5].IsEmpty && chessBoard.Squares[0][6].IsEmpty && chesspiecesW[15].FirstMove && chesspiecesW[11].FirstMove)
                 {
-                    SoundPlayer player = new SoundPlayer("sounds/castle.wav");
+                    player = new SoundPlayer("sounds/castle.wav");
                     player.Play();
 
                     chesspiecesW[15].FirstMove = false;
@@ -520,7 +522,7 @@ namespace WindowsFormsChessApp
 
                 if (chessBoard.Squares[7][4].IsEmpty && chessBoard.Squares[7][5].IsEmpty && chessBoard.Squares[7][6].IsEmpty && chesspiecesB[15].FirstMove && chesspiecesB[11].FirstMove)
                 {
-                    SoundPlayer player = new SoundPlayer("sounds/castle.wav");
+                    player = new SoundPlayer("sounds/castle.wav");
                     player.Play();
 
                     chesspiecesB[15].FirstMove = false;
@@ -636,7 +638,7 @@ namespace WindowsFormsChessApp
         //color : false -> black won
         private void postScreen(bool color)
         {
-            SoundPlayer player = new SoundPlayer("sounds/win.wav");
+            player = new SoundPlayer("sounds/win.wav");
             player.Play();
 
             //turn off the timers and set the states
@@ -644,6 +646,8 @@ namespace WindowsFormsChessApp
             gameOver = true;
             timer1.Enabled = false;
             timer2.Enabled = false;
+
+            Console.WriteLine(Sb.ToString());
 
             /* if (color)
                 MessageBox.Show("winner is the white team");
@@ -690,12 +694,7 @@ namespace WindowsFormsChessApp
 
         ////////////////// menustrip //////////////////
 
-        //options:
-        private void standardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            setThemeTo("chess_set1/", sender);
-            this.BackColor = Color.FromArgb(185, 189, 199);
-        }
+        // Options:
 
         private void androidToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -703,10 +702,10 @@ namespace WindowsFormsChessApp
             this.BackColor = Color.FromArgb(52, 235, 134);
         }
 
-        private void humanToolStripMenuItem_Click(object sender, EventArgs e)
+        private void woodenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setThemeTo("chess_set4/", sender);
-            this.BackColor = Color.FromArgb(231, 230, 235);
+            setThemeTo("chess_set2/", sender);
+            this.BackColor = Color.FromArgb(252, 191, 101);
         }
 
         private void setThemeTo(string directory, object sender)
@@ -733,36 +732,9 @@ namespace WindowsFormsChessApp
             ((ToolStripMenuItem)sender).Checked = true;
         }
 
-        private void woodenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-            this.BackColor = Color.FromArgb(252, 191, 101);
-            //different way
-            ChessPiece.ImageFolder = "chess_set2/";
-            for (int i = 0; i < 16; i++)
-            {
-                chesspiecesB[i].reloadImage();
-                chesspiecesW[i].reloadImage();
-            }
-            foreach (ChessPiece cp in newChessPieces)
-            {
-                cp.reloadImage();
-            }
-            chessBoard.resetImage("chess_set2/");
-            currentArtStyle = "chess_set2/";
 
-            //using linq
-            var senderItem = (ToolStripMenuItem)sender;
-            ((ToolStripMenuItem)senderItem.OwnerItem).DropDownItems
-                .OfType<ToolStripMenuItem>().ToList()
-                .ForEach(chesspiece1 =>
-                {
-                    chesspiece1.Checked = false;
-                });
-            senderItem.Checked = true;
-        }
 
-        //Game:
+        // Game:
         private void New_Game_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //deactive the form
